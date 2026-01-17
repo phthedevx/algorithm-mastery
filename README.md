@@ -50,7 +50,7 @@ O código está organizado por plataforma e, internamente, por nível de dificul
 
 1. Clone este repositório:
 ```bash
-git clone [https://github.com/phthedevx/SEU_REPO_AQUI.git](https://github.com/phthedevx/SEU_REPO_AQUI.git)
+git clone [[https://github.com/phthedevx/algorithm-mastery.git](https://github.com/phthedevx/algorithm-mastery.git)
 
 ```
 
