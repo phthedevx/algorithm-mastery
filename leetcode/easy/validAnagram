@@ -1,0 +1,42 @@
+/**
+ * Verifica se duas strings são anagramas validando a frequência de seus caracteres.
+ * * Abordagem: Contagem de Frequência (Frequency Counter) utilizando um array auxiliar.
+ * * Lógica:
+ * 1. Pré-condição: Se os comprimentos diferem, não podem ser anagramas.
+ * 2. Mapeamento: Utiliza um vetor de inteiros de tamanho fixo (26 posições) para representar
+ * o alfabeto, atuando como uma tabela hash otimizada para memória constante.
+ * 3. Balanceamento: Itera simultaneamente sobre ambas as strings. Incrementa a contagem para
+ * caracteres da string 's' e decrementa para 't'.
+ * 4. Verificação: Se as strings forem anagramas, o saldo final de todas as posições
+ * do vetor deve retornar a zero (as operações se anulam mutuamente).
+ * * Complexidade Temporal: O(n), onde n é o comprimento das strings.
+ * Complexidade Espacial: O(1), pois o vetor auxiliar tem tamanho constante (26),
+ * independente do tamanho da entrada.
+ */
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        int[] alfabeto = new int[26];
+
+        if(s.length() != t.length()){
+            return false;
+        }
+
+        for(int i = 0; i < s.length(); i++){
+            // Normalização do caractere para índice (0-25) e atualização do saldo
+            int indice = s.charAt(i) - 'a';
+            alfabeto[indice]++;
+
+            int indice2 = t.charAt(i) - 'a';
+            alfabeto[indice2]--;
+        }
+
+        for(int num : alfabeto){
+            if(num != 0){
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
