@@ -1,0 +1,33 @@
+/**
+ * Substitui cada elemento pelo maior elemento presente à sua direita.
+ * * * Abordagem: Iteração Reversa (Reverse Iteration) & In-place Modification.
+ * * * Lógica:
+ * 1. O problema exige conhecimento do "futuro" (elementos à direita). Ao iterar
+ * do final para o início (índice N-1 até 0), transformamos o problema:
+ * o "futuro" torna-se o histórico já processado.
+ * 2. Mantemos uma variável de estado (`maxRight`) que armazena o maior valor
+ * encontrado até o momento na travessia reversa.
+ * 3. Para cada elemento:
+ * a. Armazenamos seu valor original temporariamente (backup).
+ * b. Sobrescrevemos o valor atual com o `maxRight`.
+ * c. Atualizamos o `maxRight` comparando-o com o valor original armazenado.
+ * * * Complexidade Temporal: O(N) - Percorre o array apenas uma vez.
+ * * Complexidade Espacial: O(1) - Utiliza espaço constante, modificando o
+ * array de entrada diretamente sem alocação de estruturas auxiliares.
+ */
+
+class Solution {
+    public int[] replaceElements(int[] arr) {
+        int maxRight = -1;
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            int temp = arr[i];
+
+            arr[i] = maxRight;
+
+            maxRight = Math.max(maxRight, temp);
+        }
+
+        return arr;
+    }
+}
