@@ -23,7 +23,6 @@ class Solution {
         }
 
         for(int i = 0; i < s.length(); i++){
-            // Normalização do caractere para índice (0-25) e atualização do saldo
             int indice = s.charAt(i) - 'a';
             alfabeto[indice]++;
 
